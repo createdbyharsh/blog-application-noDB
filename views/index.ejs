@@ -12,7 +12,8 @@
     <% for (x of data){ %>
     <div class="post">
       <h3 class="user"><%= x.username.toUpperCase()%></h3>
-      <p class="content"><%= x.content%></p>
+      <p class="content"><%= x.content.slice(0,20)%></p>
+      <a href="/posts/<%=x.id%>">show full post</a>
     </div>
 
     <% } %>
