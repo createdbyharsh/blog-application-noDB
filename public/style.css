@@ -1,0 +1,27 @@
+h1 {
+    color: maroon;
+}
+
+.post {
+    background-color: beige;
+    padding: 15px;
+}
+
+.post img {
+    width: 25%;
+}
+
+.user {
+    font-style: italic;
+}
+
+html{
+    background-color: antiquewhite;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    padding: 5px;
+
+}
