@@ -3,6 +3,9 @@ const app = express();
 const port = 8080;
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
+var methodOverride = require("method-override");
+
+app.use(methodOverride("_method"));
 
 let data = [
   {
@@ -48,6 +51,20 @@ app.get("/posts/:id", (req, res) => {
   let { id } = req.params; // this means id = req.params.id
   let idPost = data.find((x) => id === x.id);
   res.render("show.ejs", { idPost });
+});
+
+app.patch("/posts/:id", (req, res) => {
+  let { id } = req.params;
+  let updatedContent = req.body.content;
+  let idPost = data.find((x) => id === x.id);
+  idPost.content = updatedContent;
+  res.redirect("/posts");
+});
+
+app.get("/posts/:id/edit", (req, res) => {
+  let { id } = req.params;
+  let idPost = data.find((x) => id === x.id);
+  res.render("edit.ejs", { idPost });
 });
 
 app.listen(port, () => {
