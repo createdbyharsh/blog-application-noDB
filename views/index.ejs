@@ -15,8 +15,11 @@
       <p class="content"><%= x.content.slice(0,20)%></p>
       <a href="/posts/<%=x.id%>">show full post</a> <br />
       <a href="/posts/<%=x.id%>/edit">Edit Post</a>
+      <br />
+      <form method="post" action="/posts/<%=x.id%>?_method=DELETE">
+        <button>Delete post</button>
+      </form>
     </div>
-
     <% } %>
     <a href="/posts/new"><button class="btn">new post</button></a>
   </body>
